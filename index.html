@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"> </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="h-[100vh]  flex justify-between items-center relative">
+       <img src="public/mountain.jpg" alt="" class="h-[100vh] w-[100%] absolute top-0 left-0 object-cover">
+       <img src="public/sunset.jpg" alt="" class="h-[100vh] w-[100%] absolute top-0 left-0 object-cover hidden">
+       <img src="public/grass.jpg" alt="" class="h-[100vh] w-[100%] absolute top-0 left-0 object-cover hidden">   
+       <img src="public/waterfall.jpg" alt="" class="h-[100vh] w-[100%] absolute top-0 left-0 object-cover hidden">   
+        <button type="button" onclick="chngeslide()" id="prev" class="  bg-blue-500 py-2 px-3 text-white rounded-full absolute top-1/2   ">
+         <-
+            
+            </button>
+                <button type="button" onclick="chngeslide()" id="next"
+                    class=" bg-blue-500
+                    py-2 px-3 text-white rounded-full absolute  top-1/2 right-0  ">-></button>
+
+
+
+
+
+    </div>
+ <script>
+    let box = document.getElementById("box");
+    let prev = document.getElementById("prev");
+    let next = document.getElementById("next");
+    let images = box.getElementsByTagName("img");
+    let currentIndex = 0;
+
+    function chngeslide() {
+    
+        if (event.target.id === "next") {
+            images[currentIndex].classList.add("hidden");
+            currentIndex++;
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+                currentIndex++;
+            }
+            images[currentIndex].classList.remove("hidden");
+        } else if (event.target.id === "prev") {
+            images[currentIndex].classList.add("hidden");
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+            images[currentIndex].classList.remove("hidden");
+        }
+    }
+    </script>
+
+
+
+
+</body>
+
+</html>
